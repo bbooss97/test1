@@ -1,0 +1,44 @@
+<%= form_with(model: visite) do |form| %>
+  <% if visite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(visite.errors.count, "error") %> prohibited this visite from being saved:</h2>
+
+      <ul>
+        <% visite.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome_paziente %>
+    <%= form.text_field :nome_paziente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cognome_paziente %>
+    <%= form.text_field :cognome_paziente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_paziente %>
+    <%= form.text_field :telefono_paziente %>
+  </div>
+
+ 
+
+  <div class="field">
+    <%= form.label :ora_visita %>
+    <%= form.datetime_select :ora_visita %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_visita %>
+    <%= form.text_field :tipo_visita %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

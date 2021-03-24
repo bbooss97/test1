@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_paziente: MyString
+  cognome_paziente: MyString
+  telefono_paziente: MyString
+  giorno_visita: 2021-03-24
+  ora_visita: 2021-03-24 13:20:17
+  tipo_visita: MyString
+
+two:
+  nome_paziente: MyString
+  cognome_paziente: MyString
+  telefono_paziente: MyString
+  giorno_visita: 2021-03-24
+  ora_visita: 2021-03-24 13:20:17
+  tipo_visita: MyString

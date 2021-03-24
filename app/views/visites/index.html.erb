@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista delle visite</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Nome paziente</th>
+      <th>Cognome paziente</th>
+      <th>Telefono paziente</th>
+      
+      <th>Ora visita</th>
+      <th>Tipo visita</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visites.each do |visite| %>
+      <tr>
+        <td><%= visite.nome_paziente %></td>
+        <td><%= visite.cognome_paziente %></td>
+        <td><%= visite.telefono_paziente %></td>
+        
+        <td><%= visite.ora_visita %></td>
+        <td><%= visite.tipo_visita %></td>
+        <td><%= link_to 'Show', visite ,class:"btn btn-secondary"%></td>
+        <td><%= link_to 'Edit', edit_visite_path(visite) ,class:"btn btn-secondary"%></td>
+        <td><%= link_to 'Destroy', visite, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Visite', new_visite_path ,class:"btn btn-secondary"%>
