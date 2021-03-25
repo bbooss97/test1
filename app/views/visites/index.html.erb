@@ -18,6 +18,7 @@
   <tbody>
     <% @visites.each do |visite| %>
       <tr>
+        <% if current_user == visite.user%>
         <td><%= visite.nome_paziente %></td>
         <td><%= visite.cognome_paziente %></td>
         <td><%= visite.telefono_paziente %></td>
@@ -28,6 +29,7 @@
         <td><%= link_to 'Edit', edit_visite_path(visite) ,class:"btn btn-secondary"%></td>
         <td><%= link_to 'Destroy', visite, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
