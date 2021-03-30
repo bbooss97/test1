@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :pazientes
   devise_for :users
   resources :visites
   get 'home/index' , to:'home#index'
