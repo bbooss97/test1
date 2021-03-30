@@ -32,8 +32,27 @@
       </tr>
       <% end %>
     <% end %>
+
+    <% if paziente_signed_in? %>
+    <% Visite.where(email: 'morelliandrea99@outlook.com').each do |visiteDelPaziente|%>
+      <tr>
+        <td><%= visiteDelPaziente.nome_paziente %></td>
+        <td><%= visiteDelPaziente.cognome_paziente %></td>
+        <td><%= visiteDelPaziente.telefono_paziente %></td>
+        <td><%= visiteDelPaziente.email %></td>
+        <td><%= visiteDelPaziente.ora_visita %></td>
+        <td><%= visiteDelPaziente.tipo_visita %></td>
+        <td><%= link_to 'Destroy', visiteDelPaziente, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
+      </tr>
+      <% end %>
+    <% end %>
+      
+   
+
   </tbody>
 </table>
+
+
 
 <br>
 <% if @booleano == 1%>

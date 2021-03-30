@@ -12,21 +12,39 @@
 
       <%= link_to 'Mostra Visite',visites_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
       <li class="nav-item">
-      
-      <%if user_signed_in?%>
+
+
+      <%if (not user_signed_in?) and (not paziente_signed_in?)%>
+        <%= link_to 'Registrati come medico',new_user_registration_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
+        
+        <%= link_to 'Loggati come medico',new_user_session_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
+
+        <%= link_to 'Registrati come paziente',new_paziente_registration_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
+        
+        <%= link_to 'Loggati come paziente',new_paziente_session_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
+      <%end%>
+
+      <%if user_signed_in? and (not paziente_signed_in?)%>
         <%= link_to 'Esci',destroy_user_session_path,class:'nav_link' ,style:'color: white;padding-left: 5px;',method: :delete%>
         <li class="nav-item">
 
         <%= link_to 'Edita profilo',edit_user_registration_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
         <li class="nav-item">
-        <%else%>
-      
-          <%= link_to 'Registrati come medico',new_user_registration_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
-          <li class="nav-item">
-          
-          <%= link_to 'Loggati come medico',new_user_session_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
-          <li class="nav-item">
       <%end%>
+
+      <%if (not user_signed_in?) and  paziente_signed_in?%>
+        <%= link_to 'Esci',destroy_paziente_session_path,class:'nav_link' ,style:'color: white;padding-left: 5px;',method: :delete%>
+        <li class="nav-item">
+
+        <%= link_to 'Edita profilo',edit_paziente_registration_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
+      <%end%>
+
+
       
 
      
