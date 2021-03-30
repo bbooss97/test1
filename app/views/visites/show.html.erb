@@ -27,5 +27,10 @@
   <%= @visite.tipo_visita %>
 </p>
 
+<p>
+  <strong>Email:</strong>
+  <%= @visite.email %>
+</p>
+
 <%= link_to 'Edit', edit_visite_path(@visite) ,class:"btn btn-secondary"%> 
 <%= link_to 'Back', visites_path ,class:"btn btn-secondary"%>

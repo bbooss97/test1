@@ -3,6 +3,7 @@ class VisitesController < ApplicationController
 
   # GET /visites or /visites.json
   def index
+    @booleano=0
     @visites = Visite.all
   end
 
@@ -64,6 +65,6 @@ class VisitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def visite_params
-      params.require(:visite).permit(:nome_paziente, :cognome_paziente, :telefono_paziente, :ora_visita, :tipo_visita, :user_id)
+      params.require(:visite).permit(:nome_paziente, :cognome_paziente, :telefono_paziente, :ora_visita, :tipo_visita, :user_id, :email)
     end
 end
