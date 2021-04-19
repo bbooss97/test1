@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Prescriptions</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Medicinale</th>
+      <th>Descrizioneutilizzo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% if paziente_signed_in?%>
+  <tbody>
+    <% @prescriptions.each do |prescription| %>
+      
+      
+        
+      <% if prescription.paziente_id.to_i == current_paziente[:id].to_i %>
+          <tr>
+          <td><%= prescription.medicinale %></td>
+          <td><%= prescription.descrizioneUtilizzo %></td>
+          <td><%= link_to 'Show', prescription %></td>
+          <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
+          <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      
+    <% end %>
+  </tbody>
+  <% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Prescription', new_prescription_path %>

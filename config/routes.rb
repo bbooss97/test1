@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :prescriptions
   resources :profilopazientis
   resources :profiles
   devise_for :pazientes
