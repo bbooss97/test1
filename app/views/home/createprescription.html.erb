@@ -1,0 +1,23 @@
+<%= form_for @prescrizione  do |form| %>
+    
+  
+    <div class="field">
+      <%= form.label :medicinale %>
+      <%= form.text_field :medicinale %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :descrizioneUtilizzo %>
+      <%= form.text_field :descrizioneUtilizzo %>
+    </div>
+    <% if user_signed_in? %>
+    <div class="field" style="display: none;">
+      <%= form.label :paziente_id %>
+      <%= form.text_field :paziente_id ,value: params[:id] %>
+    </div>
+    <% end %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  

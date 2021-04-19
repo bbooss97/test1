@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'admin/:id/:daRimuovere' ,to:"home#admin", :constraints => { daRimuovere: /[^\/]+/ }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/profiliPazienti',to:'home#profiliPazienti'
+  get '/prescrizioniPaziente/:id',to:'home#prescrizioniPaziente'
+  get '/createprescription/:id',to:'home#createprescription'
 end

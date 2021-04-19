@@ -36,6 +36,19 @@ class HomeController < ApplicationController
 
 
   def profiliPazienti
+    @arr=[]
     
+    Visite.where(user_id: current_user.id.to_i).all.each do |p|
+     @arr.push p.email
+    end
+    puts @arr
+  end
+  def prescrizioniPaziente
+     @idPaziente=params[:id]
+     
+  end
+  def createprescription
+    @prescrizione=Prescription.new
+    @idPaziente=params[:id]
   end
 end

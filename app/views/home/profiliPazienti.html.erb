@@ -16,18 +16,17 @@
 
   <tbody>
     <% Profilopazienti.all.each do |profilopazienti| %>
-      <tr>
-      
+    <% if @arr.include? profilopazienti.email %>
+      <tr>      
         <td><%= profilopazienti.nome %></td>
         <td><%= profilopazienti.cognome %></td>
         <td><%= profilopazienti.eta %></td>
         <td><%= profilopazienti.email %></td>
         <td><%= profilopazienti.descrizione %></td>
-        
-       
-      </tr>
-      
-    <% end %>
+        <td><%= link_to 'Lista prescizioni cliente', '/prescrizioniPaziente/'+ profilopazienti.paziente_id.to_s %></td>        
+      </tr>      
+      <% end %>
+      <% end %>
   </tbody>
 </table>
 

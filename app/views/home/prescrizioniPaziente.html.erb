@@ -10,10 +10,9 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  <% if paziente_signed_in?%>
+  <% if user_signed_in?%>
   <tbody>
-    <% @prescriptions.each do |prescription| %>
-      <% if prescription.paziente_id.to_i == current_paziente[:id].to_i %>
+    <% Prescription.where(paziente_id:  @idPaziente).each do |prescription| %>  
           <tr>
           <td><%= prescription.medicinale %></td>
           <td><%= prescription.descrizioneUtilizzo %></td>
@@ -21,7 +20,7 @@
           <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
           <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
+      
       
     <% end %>
   </tbody>
@@ -30,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Prescription', new_prescription_path %>
+<%= link_to 'New Prescription', "/createprescription/"+@idPaziente %>
