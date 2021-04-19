@@ -44,8 +44,10 @@
         <li class="nav-item">
       <%end%>
 
-      <%if  user_signed_in?%>
 
+      <%if  user_signed_in?%>
+        <%= link_to 'listaPazienti',"/profiliPazienti",class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
 
         <%= link_to 'ProfiloMedico',profiles_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
         <li class="nav-item">

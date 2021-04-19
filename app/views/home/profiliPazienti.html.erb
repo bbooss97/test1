@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Profilopazientis</h1>
+<h1>Lista dei profili dei miei pazienti</h1>
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="table-dark">
@@ -15,23 +15,20 @@
   </thead>
 
   <tbody>
-    <% @profilopazientis.each do |profilopazienti| %>
+    <% Profilopazienti.all.each do |profilopazienti| %>
       <tr>
-      <%if profilopazienti.paziente_id == current_paziente.id%>
+      
         <td><%= profilopazienti.nome %></td>
         <td><%= profilopazienti.cognome %></td>
         <td><%= profilopazienti.eta %></td>
         <td><%= profilopazienti.email %></td>
         <td><%= profilopazienti.descrizione %></td>
-        <td><%= link_to 'Show', profilopazienti %></td>
-        <td><%= link_to 'Edit', edit_profilopazienti_path(profilopazienti) %></td>
+        
        
       </tr>
-      <% end %>
+      
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-

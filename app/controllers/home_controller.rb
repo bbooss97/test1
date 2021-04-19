@@ -33,4 +33,9 @@ class HomeController < ApplicationController
       render html:"password sbagliata"
     end
   end
+
+
+  def profiliPazienti
+    
+  end
 end
