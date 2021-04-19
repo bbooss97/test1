@@ -11,6 +11,7 @@
       <th>Telefono paziente</th>
       <th>Email paziente</th>
       <th>Ora visita</th>
+      <th>LuogoVisita</th>
       <th>Tipo visita</th>
       <th colspan="3"></th>
     </tr>
@@ -28,6 +29,7 @@
           <td><%= visite.telefono_paziente %></td>
           <td><%= visite.email %></td>
           <td><%= visite.ora_visita %></td>
+          <td><%= visite.luogoVisita %></td>
           <td><%= visite.tipo_visita %></td>
           <td><%= link_to 'Show', visite ,class:"btn btn-secondary"%></td>
           <td><%= link_to 'Edit', edit_visite_path(visite) ,class:"btn btn-secondary"%></td>
@@ -40,12 +42,15 @@
     
     <% Visite.where(email: current_paziente.email).each do |visiteDelPaziente|%>
       <tr>
+        <td><%= visiteDelPaziente.id %></td>
         <td><%= visiteDelPaziente.nome_paziente %></td>
         <td><%= visiteDelPaziente.cognome_paziente %></td>
         <td><%= visiteDelPaziente.telefono_paziente %></td>
         <td><%= visiteDelPaziente.email %></td>
         <td><%= visiteDelPaziente.ora_visita %></td>
+        <td><%= visiteDelPaziente.luogoVisita %></td>
         <td><%= visiteDelPaziente.tipo_visita %></td>
+
         <td><%= link_to 'Destroy', visiteDelPaziente, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
       </tr>
       <% end %>

@@ -1,0 +1,41 @@
+<%= form_with(model: profilopazienti) do |form| %>
+  <% if profilopazienti.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profilopazienti.errors.count, "error") %> prohibited this profilopazienti from being saved:</h2>
+
+      <ul>
+        <% profilopazienti.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cognome %>
+    <%= form.text_field :cognome %>
+  </div>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="field">
+    <%= form.label :eta %>
+    <%= form.number_field :eta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descrizione %>
+    <%= form.text_field :descrizione %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

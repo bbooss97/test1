@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @profilopazienti.nome %>
+</p>
+
+<p>
+  <strong>Cognome:</strong>
+  <%= @profilopazienti.cognome %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @profilopazienti.email %>
+</p>
+<p>
+  <strong>Eta:</strong>
+  <%= @profilopazienti.eta %>
+</p>
+
+<p>
+  <strong>Descrizione:</strong>
+  <%= @profilopazienti.descrizione %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_profilopazienti_path(@profilopazienti) %> |
+<%= link_to 'Back', profilopazientis_path %>

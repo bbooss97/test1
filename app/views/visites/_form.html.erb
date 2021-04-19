@@ -25,18 +25,21 @@
     <%= form.label :telefono_paziente %>
     <%= form.text_field :telefono_paziente %>
   </div>
-
-
-
+  
   <div class="field">
     <%= form.label :ora_visita %>
     <%= form.datetime_select :ora_visita %>
   </div>
 
   <div class="field">
+  <%= form.label :luogoVisita %>
+  <%= form.text_field :luogoVisita %>
+
+  <div class="field">
     <%= form.label :tipo_visita %>
     <%= form.text_field :tipo_visita %>
   </div>
+  
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
