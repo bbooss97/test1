@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get '/profiliPazienti',to:'home#profiliPazienti'
   get '/prescrizioniPaziente/:id',to:'home#prescrizioniPaziente'
   get '/createprescription/:id',to:'home#createprescription'
+  get '/prenotaunmedico',to:'home#prenotaunmedico'
+  get '/chiediappuntamento/:id',to:'home#chiediappuntamento'
+  get 'richiestediappuntamento',to:'home#richiestediappuntamento'
 end

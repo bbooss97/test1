@@ -51,4 +51,21 @@ class HomeController < ApplicationController
     @prescrizione=Prescription.new
     @idPaziente=params[:id]
   end
+
+  def prenotaunmedico
+
+  end
+
+  def chiediappuntamento
+    @b=false
+    @id=params[:id]
+    @utente=Profilopazienti.find_by(paziente_id: current_paziente.id)
+    Visite.create(user_id: @id, nome_paziente: @utente.nome, cognome_paziente: @utente.cognome, email: @utente.email).save
+    @b=true
+  end
+
+  def richiestediappuntamento
+
+  end
+
 end

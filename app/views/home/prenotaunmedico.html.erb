@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profilo dottore </h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Eta</th>
+      <th>Email</th>
+      <th>Descrizione</th>
+      <th>Citta</th>
+      <th>Specializzazione</th>
+      <th>Costovisita</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Profile.all.each do |profile| %>
+      
+      <tr>
+        <td><%= profile.nome %></td>
+        <td><%= profile.cognome %></td>
+        <td><%= profile.eta %></td>
+        <td><%= profile.email %></td>
+        <td><%= profile.descrizione %></td>
+        <td><%= profile.citta %></td>
+        <td><%= profile.specializzazione %></td>
+        <td><%= profile.costovisita %></td>
+        
+        <td><%= link_to 'Chiedi un appuntamento', '/chiediappuntamento/'+profile.user_id.to_s %></td>
+        
+      </tr>
+      <% end %>
+    
+  </tbody>
+</table>
+
+<br>
+
+

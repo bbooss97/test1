@@ -22,7 +22,7 @@
   <tbody>
     <% @visites.each do |visite| %>
       <tr>
-        <% if current_user == visite.user%>
+        <% if current_user == visite.user and visite.ora_visita !=nil%>
           <td><%= visite.id %></td>
           <td><%= visite.nome_paziente %></td>
           <td><%= visite.cognome_paziente %></td>
