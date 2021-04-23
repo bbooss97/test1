@@ -15,6 +15,11 @@ class HomeController < ApplicationController
       end
       
     end
+
+    if not Administrator.all.exists?
+      redirect_to new_administrator_registration_path
+    end
+
   end
   def about
     
@@ -27,7 +32,7 @@ class HomeController < ApplicationController
       User.where(email: daRimuovere).try(:delete_all)
       Paziente.where(email: daRimuovere).try(:delete_all)
       Profile.where(email: daRimuovere).try(:delete_all)
-      
+      Profilopazienti.where(email: daRimuovere).try(:delete_all)
       render html:"ho eliminato se trovato"
     else
       render html:"password sbagliata"
@@ -66,6 +71,12 @@ class HomeController < ApplicationController
 
   def richiestediappuntamento
 
+  end
+
+  def gestisciAdministrador
+    if not Administrator.all.exists?
+      redirect_to new_administrator_registration_path
+    end
   end
 
 end

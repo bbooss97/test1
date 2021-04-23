@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :administrators, controllers: { registrations: 'administrator/registrations' }
+
   resources :prescriptions
   resources :profilopazientis
   resources :profiles
