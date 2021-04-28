@@ -1,6 +1,8 @@
+<%if user_signed_in? or paziente_signed_in? or administrator_signed_in?%>
 <h1>Modifica una visita</h1>
 
 <%= render 'form', visite: @visite %>
 
 <%= link_to 'Show', @visite , class:"btn btn-secondary"%> 
 <%= link_to 'Back', visites_path ,class:"btn btn-secondary"%>
+<%end%>

@@ -1,5 +1,7 @@
-<h1>Aggiungi una nuova visita</h1>
+<%if user_signed_in? or paziente_signed_in? or administrator_signed_in?%>
+    <h1>Aggiungi una nuova visita</h1>
 
-<%= render 'form', visite: @visite %>
+    <%= render 'form', visite: @visite %>
 
-<%= link_to 'Back', visites_path , class:"btn btn-secondary"%>
+    <%= link_to 'Back', visites_path , class:"btn btn-secondary"%>
+<%end%>

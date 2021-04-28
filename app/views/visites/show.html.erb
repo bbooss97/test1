@@ -1,38 +1,42 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome paziente:</strong>
-  <%= @visite.nome_paziente %>
-</p>
 
-<p>
-  <strong>Cognome paziente:</strong>
-  <%= @visite.cognome_paziente %>
-</p>
+<%if user_signed_in? or paziente_signed_in? or administrator_signed_in?%>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Telefono paziente:</strong>
-  <%= @visite.telefono_paziente %>
-</p>
+  <p>
+    <strong>Nome paziente:</strong>
+    <%= @visite.nome_paziente %>
+  </p>
 
-<p>
-  <strong>Ora visita:</strong>
-  <%= @visite.ora_visita %>
-</p>
-<p>
-  <strong>Luogo visita:</strong>
-  <%= @visite.luogoVisita %>
-</p>
+  <p>
+    <strong>Cognome paziente:</strong>
+    <%= @visite.cognome_paziente %>
+  </p>
 
-<p>
-  <strong>Tipo visita:</strong>
-  <%= @visite.tipo_visita %>
-</p>
+  <p>
+    <strong>Telefono paziente:</strong>
+    <%= @visite.telefono_paziente %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @visite.email %>
-</p>
+  <p>
+    <strong>Ora visita:</strong>
+    <%= @visite.ora_visita %>
+  </p>
+  <p>
+    <strong>Luogo visita:</strong>
+    <%= @visite.luogoVisita %>
+  </p>
 
-<%= link_to 'Edit', edit_visite_path(@visite) ,class:"btn btn-secondary"%> 
-<%= link_to 'Back', visites_path ,class:"btn btn-secondary"%>
+  <p>
+    <strong>Tipo visita:</strong>
+    <%= @visite.tipo_visita %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @visite.email %>
+  </p>
+
+  <%= link_to 'Edit', edit_visite_path(@visite) ,class:"btn btn-secondary"%> 
+  <%= link_to 'Back', visites_path ,class:"btn btn-secondary"%>
+<%end %>

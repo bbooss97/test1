@@ -22,7 +22,7 @@
   <tbody>
     <% @visites.each do |visite| %>
       <tr>
-        <% if current_user == visite.user and visite.ora_visita !=nil%>
+        <% if user_signed_in? and current_user == visite.user and visite.ora_visita !=nil%>
           <td><%= visite.id %></td>
           <td><%= visite.nome_paziente %></td>
           <td><%= visite.cognome_paziente %></td>
@@ -55,13 +55,32 @@
       </tr>
       <% end %>
     <% end %>
-      
+    
+    <% @visites.each do |visite| %>
+      <tr>
+        <% if administrator_signed_in? %>
+          <td><%= visite.id %></td>
+          <td><%= visite.nome_paziente %></td>
+          <td><%= visite.cognome_paziente %></td>
+          <td><%= visite.telefono_paziente %></td>
+          <td><%= visite.email %></td>
+          <td><%= visite.ora_visita %></td>
+          <td><%= visite.luogoVisita %></td>
+          <td><%= visite.tipo_visita %></td>
+          <td><%= link_to 'Show', visite ,class:"btn btn-secondary"%></td>
+          <td><%= link_to 'Edit', edit_visite_path(visite) ,class:"btn btn-secondary"%></td>
+          <td><%= link_to 'Destroy', visite, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
+      </tr>
+      <% end %>
+    <% end %>
    
 
   </tbody>
 </table>
 
+
 <br>
 <% if @booleano == 1%>
   <%= link_to 'New Visite', new_visite_path ,class:"btn btn-secondary"%>
 <% end %>
+

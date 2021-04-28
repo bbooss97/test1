@@ -1,6 +1,7 @@
 class VisitesController < ApplicationController
   before_action :set_visite, only: %i[ show edit update destroy ]
 
+
   # GET /visites or /visites.json
   def index
     @booleano=0
@@ -9,6 +10,7 @@ class VisitesController < ApplicationController
 
   # GET /visites/1 or /visites/1.json
   def show
+    
   end
 
   # GET /visites/new
