@@ -79,4 +79,55 @@ class HomeController < ApplicationController
     end
   end
 
+
+  def funzioniamministratore
+    @medici=User.all
+    @pazienti=Paziente.all
+  end
+  def distruggimedico
+    if not administrator_signed_in?
+      return
+    end
+    email=User.find(params[:id]).email
+    User.find(params[:id]).delete
+    Visite.where(email: email).try(:delete_all) 
+    Profile.where(email: email).try(:delete_all)
+    redirect_to '/funzioniamministratore'
+  end
+
+  def distruggipaziente
+    if not administrator_signed_in?
+      return
+    end
+    email=Paziente.find(params[:id]).email
+    Paziente.find(params[:id]).delete
+    Visite.where(email: email).try(:delete_all)
+    Profilopazienti.where(email: email).try(:delete_all)
+    redirect_to '/funzioniamministratore'
+  end
+
+
+  def cambiamedico
+    if not administrator_signed_in?
+      return
+    end
+    medico=User.find(params[:id])
+    medico.password='admin12345'
+    medico.password_confirmation='admin12345'
+    medico.save
+    sign_out(current_administrator)
+    redirect_to new_user_session_path
+  end
+  def cambiapaziente
+    if not administrator_signed_in?
+      return
+    end
+    paziente=Paziente.find(params[:id])
+    paziente.password='admin12345'
+    paziente.password_confirmation='admin12345'
+    paziente.save
+    sign_out(current_administrator)
+    redirect_to new_paziente_session_path
+  end
+
 end

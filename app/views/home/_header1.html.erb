@@ -7,12 +7,12 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
     
-      <%if user_signed_in? or paziente_signed_in? or administrator_signed_in?%>
+      <%if user_signed_in? or paziente_signed_in? %>
         <%= link_to 'Mostra Visite',visites_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
         <li class="nav-item">
       <%end%>
 
-      <%if (not user_signed_in?) and (not paziente_signed_in?)%>
+      <%if (not user_signed_in?) and (not paziente_signed_in?) and (not administrator_signed_in?)%>
         <%= link_to 'Registrati come medico',new_user_registration_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
         <li class="nav-item">
         
@@ -70,7 +70,11 @@
       <% if administrator_signed_in?%>
         <%= link_to 'Esciadmin',destroy_administrator_session_path,class:'nav_link' ,style:'color: white;padding-left: 5px;',method: :delete%>
         <li class="nav-item">
+        <%= link_to 'Funzioni Amministratore',funzioniamministratore_path,class:'nav_link' ,style:'color: white;padding-left: 5px;'%>
+        <li class="nav-item">
       <%end%>
+
+     
 
     </ul>
   </div>
