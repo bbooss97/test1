@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   resources :prescriptions
   resources :profilopazientis
   resources :profiles
-  devise_for :pazientes
+  
   devise_for :users
   resources :visites
   get 'home/index' , to:'home#index'
   root to: 'home#index'
+  devise_for :pazientes, :controllers => { :omniauth_callbacks => "pazientes/omniauth_callbacks" }
   
  # get 'admin/:id/:daRimuovere' ,to:"home#admin", :constraints => { daRimuovere: /[^\/]+/ }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
