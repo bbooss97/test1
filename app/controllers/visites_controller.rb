@@ -4,26 +4,40 @@ class VisitesController < ApplicationController
 
   # GET /visites or /visites.json
   def index
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @booleano=0
     @visites = Visite.all
   end
 
   # GET /visites/1 or /visites/1.json
   def show
-    
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # GET /visites/new
   def new
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @visite = Visite.new
   end
 
   # GET /visites/1/edit
   def edit
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # POST /visites or /visites.json
   def create
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @visite = Visite.new(visite_params)
 
     respond_to do |format|
@@ -39,6 +53,9 @@ class VisitesController < ApplicationController
 
   # PATCH/PUT /visites/1 or /visites/1.json
   def update
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     respond_to do |format|
       if @visite.update(visite_params)
         format.html { redirect_to @visite, notice: "Visite was successfully updated." }
@@ -52,6 +69,9 @@ class VisitesController < ApplicationController
 
   # DELETE /visites/1 or /visites/1.json
   def destroy
+    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @visite.destroy
     respond_to do |format|
       format.html { redirect_to visites_url, notice: "Visite was successfully destroyed." }

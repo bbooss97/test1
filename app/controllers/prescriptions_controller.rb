@@ -3,24 +3,39 @@ class PrescriptionsController < ApplicationController
 
   # GET /prescriptions or /prescriptions.json
   def index
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @prescriptions = Prescription.all
   end
 
   # GET /prescriptions/1 or /prescriptions/1.json
   def show
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # GET /prescriptions/new
   def new
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @prescription = Prescription.new
   end
 
   # GET /prescriptions/1/edit
   def edit
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # POST /prescriptions or /prescriptions.json
   def create
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @prescription = Prescription.new(prescription_params)
 
     respond_to do |format|
@@ -36,6 +51,9 @@ class PrescriptionsController < ApplicationController
 
   # PATCH/PUT /prescriptions/1 or /prescriptions/1.json
   def update
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     respond_to do |format|
       if @prescription.update(prescription_params)
         format.html { redirect_to @prescription, notice: "Prescription was successfully updated." }
@@ -49,6 +67,9 @@ class PrescriptionsController < ApplicationController
 
   # DELETE /prescriptions/1 or /prescriptions/1.json
   def destroy
+    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @prescription.destroy
     respond_to do |format|
       format.html { redirect_to prescriptions_url, notice: "Prescription was successfully destroyed." }
@@ -67,3 +88,4 @@ class PrescriptionsController < ApplicationController
       params.require(:prescription).permit(:medicinale, :descrizioneUtilizzo, :paziente_id)
     end
 end
+

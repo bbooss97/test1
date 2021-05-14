@@ -3,24 +3,39 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profiles = Profile.all
   end
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # GET /profiles/new
   def new
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profile = Profile.new
   end
 
   # GET /profiles/1/edit
   def edit
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # POST /profiles or /profiles.json
   def create
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profile = Profile.new(profile_params)
 
     respond_to do |format|
@@ -36,6 +51,9 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: "Profile was successfully updated." }
@@ -49,6 +67,9 @@ class ProfilesController < ApplicationController
 
   # DELETE /profiles/1 or /profiles/1.json
   def destroy
+    if not ( user_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }

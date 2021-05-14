@@ -3,24 +3,39 @@ class ProfilopazientisController < ApplicationController
 
   # GET /profilopazientis or /profilopazientis.json
   def index
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profilopazientis = Profilopazienti.all
   end
 
   # GET /profilopazientis/1 or /profilopazientis/1.json
   def show
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # GET /profilopazientis/new
   def new
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profilopazienti = Profilopazienti.new
   end
 
   # GET /profilopazientis/1/edit
   def edit
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
   end
 
   # POST /profilopazientis or /profilopazientis.json
   def create
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profilopazienti = Profilopazienti.new(profilopazienti_params)
 
     respond_to do |format|
@@ -36,6 +51,9 @@ class ProfilopazientisController < ApplicationController
 
   # PATCH/PUT /profilopazientis/1 or /profilopazientis/1.json
   def update
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     respond_to do |format|
       if @profilopazienti.update(profilopazienti_params)
         format.html { redirect_to @profilopazienti, notice: "Profilopazienti was successfully updated." }
@@ -49,6 +67,9 @@ class ProfilopazientisController < ApplicationController
 
   # DELETE /profilopazientis/1 or /profilopazientis/1.json
   def destroy
+    if not ( paziente_signed_in? or administrator_signed_in?)
+      redirect_to root_path and return
+    end
     @profilopazienti.destroy
     respond_to do |format|
       format.html { redirect_to profilopazientis_url, notice: "Profilopazienti was successfully destroyed." }
@@ -57,6 +78,7 @@ class ProfilopazientisController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_profilopazienti
       @profilopazienti = Profilopazienti.find(params[:id])
