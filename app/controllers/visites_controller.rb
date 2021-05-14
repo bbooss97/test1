@@ -13,14 +13,14 @@ class VisitesController < ApplicationController
 
   # GET /visites/1 or /visites/1.json
   def show
-    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+    if not (user_signed_in?  or administrator_signed_in?)
       redirect_to root_path and return
     end
   end
 
   # GET /visites/new
   def new
-    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+    if not (user_signed_in?  or administrator_signed_in?)
       redirect_to root_path and return
     end
     @visite = Visite.new
@@ -28,14 +28,14 @@ class VisitesController < ApplicationController
 
   # GET /visites/1/edit
   def edit
-    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+    if not (user_signed_in?  or administrator_signed_in?)
       redirect_to root_path and return
     end
   end
 
   # POST /visites or /visites.json
   def create
-    if not (user_signed_in? or paziente_signed_in? or administrator_signed_in?)
+    if not (user_signed_in?  or administrator_signed_in?)
       redirect_to root_path and return
     end
     @visite = Visite.new(visite_params)

@@ -3,7 +3,7 @@ class PrescriptionsController < ApplicationController
 
   # GET /prescriptions or /prescriptions.json
   def index
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
     @prescriptions = Prescription.all
@@ -11,14 +11,14 @@ class PrescriptionsController < ApplicationController
 
   # GET /prescriptions/1 or /prescriptions/1.json
   def show
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
   end
 
   # GET /prescriptions/new
   def new
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
     @prescription = Prescription.new
@@ -26,14 +26,14 @@ class PrescriptionsController < ApplicationController
 
   # GET /prescriptions/1/edit
   def edit
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
   end
 
   # POST /prescriptions or /prescriptions.json
   def create
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
     @prescription = Prescription.new(prescription_params)
@@ -51,7 +51,7 @@ class PrescriptionsController < ApplicationController
 
   # PATCH/PUT /prescriptions/1 or /prescriptions/1.json
   def update
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
     respond_to do |format|
@@ -67,7 +67,7 @@ class PrescriptionsController < ApplicationController
 
   # DELETE /prescriptions/1 or /prescriptions/1.json
   def destroy
-    if not ( user_signed_in? or user_signed_in? or administrator_signed_in?)
+    if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
       redirect_to root_path and return
     end
     @prescription.destroy
