@@ -24,20 +24,7 @@ class HomeController < ApplicationController
   def about
     
   end
-  def admin
-    if params[:id]=="admin12345"
-      daRimuovere=params[:daRimuovere]
-      puts daRimuovere
-      Visite.where(email: daRimuovere).try(:delete_all)
-      User.where(email: daRimuovere).try(:delete_all)
-      Paziente.where(email: daRimuovere).try(:delete_all)
-      Profile.where(email: daRimuovere).try(:delete_all)
-      Profilopazienti.where(email: daRimuovere).try(:delete_all)
-      render html:"ho eliminato se trovato"
-    else
-      render html:"password sbagliata"
-    end
-  end
+  
 
 
   def profiliPazienti
@@ -81,10 +68,15 @@ class HomeController < ApplicationController
 
 
   def funzioniamministratore
+    if  not administrator_signed_in?
+      
+      return
+    end 
     @medici=User.all
     @pazienti=Paziente.all
   end
   def distruggimedico
+
     if not administrator_signed_in?
       return
     end
