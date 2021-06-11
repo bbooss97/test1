@@ -16,7 +16,7 @@ RSpec.describe PrescriptionsController, type: :controller do
   end
 
   it "should not create prescriptions" do
-    params = {:prescriptions=>{:medicinale => "medicinale", :descrizioneUtilizzo =>
+    params = {:prescription => {:medicinale => "medicinale", :descrizioneUtilizzo =>
     "descrizioneUtilizzo" }}
     get :create, :params => params
     m_tst= Prescription.where(:medicinale => "medicinale")
@@ -26,7 +26,7 @@ RSpec.describe PrescriptionsController, type: :controller do
     
   it "should create prescriptions" do
     sign_in users(:medicoone)
-    params = {:prescriptions=>{:medicinale => "medicinale", :descrizioneUtilizzo =>
+    params = {:prescription => {:medicinale => "medicinale", :descrizioneUtilizzo =>
       "descrizioneUtilizzo" }}
     sleep 1
     submission = Prescription.create(medicinale: "medicinale", descrizioneUtilizzo: "descrizioneUtilizzo")

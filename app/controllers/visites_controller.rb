@@ -1,6 +1,6 @@
 class VisitesController < ApplicationController
   before_action :set_visite, only: %i[ show edit update destroy ]
-
+  #load_and_authorize_resource :only => [:create, :update, :destroy, :read]
 
   # GET /visites or /visites.json
   def index

@@ -1,6 +1,6 @@
 class ProfilopazientisController < ApplicationController
   before_action :set_profilopazienti, only: %i[ show edit update destroy ]
-
+  #load_and_authorize_resource :only => [:create, :update, :destroy, :read]
   # GET /profilopazientis or /profilopazientis.json
   def index
     if not ( paziente_signed_in? or administrator_signed_in?)
