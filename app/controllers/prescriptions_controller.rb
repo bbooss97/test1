@@ -1,6 +1,6 @@
 class PrescriptionsController < ApplicationController
   before_action :set_prescription, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /prescriptions or /prescriptions.json
   def index
     if not ( user_signed_in? or paziente_signed_in? or administrator_signed_in?)
