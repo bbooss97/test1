@@ -30,10 +30,7 @@ class Administrator::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    if  not administrator_signed_in? 
-      redirect_to '/home/index' 
-      return
-    end 
+    redirect_to root_path and return
     super
   end
 
@@ -43,10 +40,7 @@ class Administrator::RegistrationsController < Devise::RegistrationsController
   # cancel oauth signing in/up in the middle of the process,
   # removing all OAuth session data.
   def cancel
-    if  not administrator_signed_in? 
-      redirect_to '/home/index' 
-      return
-    end
+    redirect_to root_path and return
     super
   end
 

@@ -19,8 +19,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'omniauth-facebook'
 gem 'omniauth', '~>1.9.1'
-gem 'rexml'
-gem 'rspec-rails'
+
+
 gem 'rexml'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -53,7 +53,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'cucumber-rails',:require => false
-
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'launchy'
 end

@@ -3,9 +3,10 @@
     # Write code here that turns the phrase above into concrete actions
   end
 
-
-
-
+  Given('I am on administrators sign in page') do
+    visit '/administrators/sign_in' #GET 
+    # Write code here that turns the phrase above into concrete actions
+  end
 
   When('I follow {string}') do |string|
     click_link(string)
@@ -24,9 +25,6 @@ And('I click {string}') do |string|
     click_on(string)
     #pending # Write code here that turns the phrase above into concrete actions
   end
-
-
-
 
 Then('I should be on the sign up come Medico page') do
     current_path = URI.parse(current_url).path

@@ -17,7 +17,7 @@
           <td><%= medico.id %></td>
           <td><%= medico.email %></td>
           <td><%= link_to 'Edit', 'cambiamedico/'+medico.id.to_s ,class:"btn btn-secondary"%></td>
-          <td><%= link_to 'Destroy', 'distruggimedico/'+medico.id.to_s, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
+          <td><%= link_to 'Destroy', 'distruggimedico/'+medico.id.to_s,class:"btn btn-secondary"%></td>
       </tr>
   
     <% end %>
@@ -40,7 +40,7 @@
           <td><%= paziente.id %></td>
           <td><%= paziente.email %></td>
           <td><%= link_to 'Edit', 'cambiapaziente/'+paziente.id.to_s ,class:"btn btn-secondary"%></td>
-          <td><%= link_to 'Destroy', 'distruggipaziente/'+paziente.id.to_s, data: { confirm: 'Are you sure?' } ,class:"btn btn-secondary"%></td>
+          <td><%= link_to 'Destroy', 'distruggipaziente/'+paziente.id.to_s ,class:"btn btn-secondary"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -49,7 +49,7 @@
 <br><br><br>
 <h1>Amministratore</h1>
    
-<%= link_to 'Edita o elimina', '/administrators/edit' ,class:"btn btn-secondary"%></td>
+<%= link_to 'Edita amministratore', '/administrators/edit' ,class:"btn btn-secondary"%></td>
       
     
 

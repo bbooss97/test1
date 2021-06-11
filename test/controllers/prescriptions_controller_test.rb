@@ -19,7 +19,6 @@ class PrescriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Prescription.count') do
       post prescriptions_url, params: { prescription: { descrizioneUtilizzo: @prescription.descrizioneUtilizzo, medicinale: @prescription.medicinale } }
     end
-
     assert_redirected_to prescription_url(Prescription.last)
   end
 
