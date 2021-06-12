@@ -15,7 +15,7 @@ RSpec.describe VisitesController, type: :controller do
   end
 
   it "should not create visita" do
-    params = {:visites=>{:nome_paziente => "nome", :cognome_paziente =>
+    params = {:visite=>{:nome_paziente => "nome", :cognome_paziente =>
     "cognome", :telefono_paziente => "12345", :ora_visita => "12:20:32", :tipo_visita => "boh"}}
     get :create, :params => params
     m_tst= Visite.where(:nome_paziente => "nome")
@@ -25,7 +25,7 @@ RSpec.describe VisitesController, type: :controller do
     
   it "should create visita" do
     sign_in users(:medicoone)
-    params = {:visites=>{:nome_paziente => "nome", :cognome_paziente =>
+    params = {:visite=>{:nome_paziente => "nome", :cognome_paziente =>
     "cognome", :telefono_paziente => "12345", :ora_visita => "12:20:32", :tipo_visita => "boh"}}
   
     sleep 1

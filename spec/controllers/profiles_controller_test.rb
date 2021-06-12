@@ -16,7 +16,7 @@ RSpec.describe ProfilesController, type: :controller do
   end
 
   it "should not create profilo" do
-    params = {:profiles=>{:nome => "nome", :cognome =>
+    params = {:profile=>{:nome => "nome", :cognome =>
     "cognome" }}
     get :create, :params => params
     m_tst= Profile.where(:nome => "nome")
@@ -26,7 +26,7 @@ RSpec.describe ProfilesController, type: :controller do
     
   it "should create profilo" do
     sign_in users(:medicoone)
-    params = {:profiles=>{:nome => "nome", :cognome =>
+    params = {:profile=>{:nome => "nome", :cognome =>
       "cognome" }}  
     sleep 1
     submission = Profile.create(nome: "nome", cognome: "cognome")

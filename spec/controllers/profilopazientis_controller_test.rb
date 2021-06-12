@@ -16,7 +16,7 @@ require "rails_helper"
     end
   
     it "should not create profilopazientis" do
-      params = {:profilopazientis=>{:nome => "nome", :cognome =>
+      params = {:profilopazienti=>{:nome => "nome", :cognome =>
       "cognome" }}
       get :create, :params => params
       m_tst= Profile.where(:nome => "nome")
@@ -26,7 +26,7 @@ require "rails_helper"
       
     it "should create profilopazientis" do
       sign_in pazientes(:pazienteone)
-      params = {:profilopazientis=>{:nome => "nome", :cognome =>
+      params = {:profilopazienti=>{:nome => "nome", :cognome =>
         "cognome" }}  
       sleep 1
       submission = Profilopazienti.create(nome: "nome", cognome: "cognome")
