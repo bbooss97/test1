@@ -1,4 +1,4 @@
-Feature: As a Medico I want to add/edit/see a Prescrizione
+Feature: As a Medico I want to add/edit a Prescrizione
 
 Scenario: As a Medico I wanto to add a Prescrizione
    Given I am on test1 home page
